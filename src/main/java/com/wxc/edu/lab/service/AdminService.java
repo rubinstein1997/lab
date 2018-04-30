@@ -9,8 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdminService {
 
-    @Autowired
     private AdminMapper adminMapper;
+
+    @Autowired
+    public AdminService(AdminMapper adminMapper) {
+        this.adminMapper = adminMapper;
+    }
 
     public Admin selectById(Long id) {
         return adminMapper.selectById(id);

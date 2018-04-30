@@ -17,8 +17,10 @@ public class AdminController {
     @ResponseBody
     @RequestMapping("/Admin")
     public Object admin(@RequestParam("id") Long id) {
-
         return adminService.selectById(id);
     }
+
+    @RequestMapping("/login",)
+
 
 }
