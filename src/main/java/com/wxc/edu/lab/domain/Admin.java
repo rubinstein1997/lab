@@ -2,7 +2,7 @@ package com.wxc.edu.lab.domain;
 
 public class Admin {
 
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -12,11 +12,11 @@ public class Admin {
 
     private Long telephone;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -16,7 +16,11 @@ public class AdminService {
         this.adminMapper = adminMapper;
     }
 
-    public Admin selectById(Long id) {
+    public Admin selectById(String id) {
         return adminMapper.selectById(id);
+    }
+
+    public Admin login(String id, String passwd) {
+        return adminMapper.selectByIdAndPasswd(id, passwd);
     }
 }
