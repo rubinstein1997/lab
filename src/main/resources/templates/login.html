@@ -1,6 +1,7 @@
 <html>
 <link type="text/css" id="dark-mode" rel="stylesheet" href="">
 <style type="text/css" id="dark-mode-custom-style"></style>
+<html lang="zh-Hans" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -21,7 +22,7 @@
         <div style="text-align: center; margin-bottom: 20px; font-size: 20px">
             登录
         </div>
-        <div class="layui-form">
+        <form class="layui-form" th:action="@{/login}" th:method="post">
 
             <div class="layui-form-item">
                 <input type="text" name="id" id="LAY-user-login-username" lay-verify="required" placeholder="用户名"
@@ -36,7 +37,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">选择框</label>
                 <div class="layui-input-block">
-                    <select name="city" lay-verify="required">
+                    <select name="role" lay-verify="required">
                         <option value=""></option>
                         <option value="0">学生</option>
                         <option value="1">教师</option>
@@ -49,11 +50,12 @@
                 <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="LAY-user-login-submit">登 入</button>
             </div>
 
-        </div>
+        </form>
     </div>
 
 
 </div>
+
 
 </div>
 
