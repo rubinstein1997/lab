@@ -18,9 +18,6 @@ public class UserController {
     @Autowired
     private AdminService adminService;
 
-    //user的角色
-    public static final String[] User_Role = {"admin", "teacher", "student"};
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
         return "login";
@@ -38,10 +35,10 @@ public class UserController {
 
         switch (role) {
             case "0":
-                ;
+
                 break;
             case "1":
-                ;
+
                 break;
             case "2":
                 user = adminService.login(id,passwd);
