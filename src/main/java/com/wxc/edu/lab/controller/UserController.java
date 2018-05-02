@@ -1,6 +1,7 @@
 package com.wxc.edu.lab.controller;
 
 import com.wxc.edu.lab.domain.Admin;
+import com.wxc.edu.lab.domain.User;
 import com.wxc.edu.lab.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,9 @@ public class UserController {
     @Autowired
     private AdminService adminService;
 
+    //user的角色
+    public static final String[] User_Role = {"admin", "teacher", "student"};
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
         return "login";
@@ -26,20 +30,35 @@ public class UserController {
     public String loginForm(
             @RequestParam("id") String id,
             @RequestParam("passwd") String passwd,
+            @RequestParam("role") String role,
             HttpSession httpSession,
             Model model) {
-        Admin admin = adminService.login(id,passwd);
-        if(admin != null) {
-            httpSession.setAttribute("user_session",admin);
-            return "redirect:/main";
+
+        User user = null;
+
+        switch (role) {
+            case "0":
+                ;
+                break;
+            case "1":
+                ;
+                break;
+            case "2":
+                user = adminService.login(id,passwd);
+                user.setRole("admin");
+                break;
+
+        }
+
+        if(user != null) {
+            httpSession.setAttribute("user_session",user);
+            return "redirect:/" + user.getRole() + "/main";
         } else {
             model.addAttribute("message", "登录名或密码输入错误");
             return "forward:/login";
         }
+
     }
 
-    @RequestMapping(value = "/main")
-    public String main() {
-        return "main";
-    }
+
 }
