@@ -3,6 +3,7 @@ package com.wxc.edu.lab.controller;
 import com.wxc.edu.lab.domain.Admin;
 import com.wxc.edu.lab.domain.User;
 import com.wxc.edu.lab.service.AdminService;
+import com.wxc.edu.lab.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,9 @@ public class UserController {
 
     @Autowired
     private AdminService adminService;
+
+    @Autowired
+    private TeacherService teacherService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
@@ -38,7 +42,8 @@ public class UserController {
 
                 break;
             case "1":
-
+                user = teacherService.login(id,passwd);
+                user.setRole("teacher");
                 break;
             case "2":
                 user = adminService.login(id,passwd);

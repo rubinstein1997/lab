@@ -36,8 +36,11 @@ public class UserInterceptor implements HandlerInterceptor {
             } else {
                 switch (user.getRole()) {
                     case "admin":
+                        System.out.println("admin拦截");
                         return servletPath.contains("admin");
-
+                    case "teacher":
+                        System.out.println("teacher拦截");
+                        return servletPath.contains("teacher");
 
                 }
             }
