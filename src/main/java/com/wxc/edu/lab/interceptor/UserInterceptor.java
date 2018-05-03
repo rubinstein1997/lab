@@ -37,12 +37,13 @@ public class UserInterceptor implements HandlerInterceptor {
                 switch (user.getRole()) {
                     case "admin":
                         return servletPath.contains("admin");
-                        break;
+
 
                 }
             }
-            return false;
+
         }
+        return false;
     }
 
     @Override
