@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html><html lang="zh-Hans" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -35,7 +36,7 @@
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="">退了</a></li>
+            <li class="layui-nav-item"><a th:href="@{/logout}">退出</a></li>
         </ul>
     </div>
 

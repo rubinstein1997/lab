@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -58,6 +59,18 @@ public class UserController {
         } else {
             model.addAttribute("message", "登录名或密码输入错误");
             return "forward:/login";
+        }
+
+    }
+
+    @Controller
+    public class LogoutController {
+
+        @RequestMapping(value="/logout",method = RequestMethod.GET)
+        public String logout(HttpServletRequest request){
+            HttpSession httpSession = request.getSession();
+            httpSession.invalidate();
+            return "redirect:/login";
         }
 
     }
