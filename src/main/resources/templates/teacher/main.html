@@ -44,6 +44,12 @@
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+
+                <li class="layui-nav-item"><a href="">我的课表</a></li>
+
+                <li class="layui-nav-item"><a href="">课表预约</a></li>
+
+
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">所有商品</a>
                     <dl class="layui-nav-child">
@@ -69,7 +75,21 @@
 
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;">内容主体区域</div>
+        <table id="demo" lay-filter="test"></table>
+        <table class="layui-table" lay-data="{基础参数}">
+            <thead>
+            <tr>
+                <th lay-data="{field:'username', width:80}" rowspan="2">联系人</th>
+                <th lay-data="{field:'amount', width:120}" rowspan="2">金额</th>
+                <th lay-data="{align:'center'}" colspan="3">地址</th>
+            </tr>
+            <tr>
+                <th lay-data="{field:'province', width:80}">省</th>
+                <th lay-data="{field:'city', width:120}">市</th>
+                <th lay-data="{field:'county', width:300}">详细</th>
+            </tr>
+            </thead>
+        </table>
     </div>
 
     <div class="layui-footer">
@@ -82,6 +102,31 @@
     //JavaScript代码区域
     layui.use('element', function(){
         var element = layui.element;
+
+    });
+
+    layui.use('table', function(){
+        var table = layui.table;
+
+        //第一个实例
+        table.render({
+            elem: '#demo'
+            ,height: 315
+            ,url: '/teacher/schedule' //数据接口
+            ,page: true //开启分页
+            ,cols: [
+                        [ //表头
+                {field: 'id', title: '', width:80, fixed: 'left'}
+                ,{field: 'monday', title: '星期一', width:80}
+                ,{field: 'tuesday', title: '星期二', width:80}
+                ,{field: 'wednesday', title: '星期三', width:80}
+                ,{field: 'thursday', title: '星期四', width: 80}
+                ,{field: 'friday', title: '星期五', width: 80}
+                ,{field: 'saturday', title: '星期六', width: 80}
+                ,{field: 'sunday', title: '星期日', width: 80}
+                ]
+            ]
+        });
 
     });
 </script>
