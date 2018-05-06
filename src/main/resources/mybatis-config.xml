@@ -6,5 +6,6 @@
     <mappers>
         <mapper resource="mapper/AdminMapper.xml"/>
         <mapper resource="mapper/TeacherMapper.xml"/>
+        <mapper resource="mapper/CourseMapper.xml"/>
     </mappers>
 </configuration>
