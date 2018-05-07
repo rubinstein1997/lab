@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxc.edu.lab.mapper.CourseMapper">
+
+    <resultMap id="courseResult" type="com.wxc.edu.lab.domain.Course">
+        <id property="id" column="id"/>
+        <result property="teacher_id" column="teacher"/>
+        <result property="course" column="courseName"/>
+        <result property="day" column="day"/>
+        <result property="week" column="week"/>
+        <result property="time" column="segment"/>
+        <result property="laboratory_id" column="laboratory"/>
+    </resultMap>
+
+
+
+    <select id="select" fetchSize="1" resultMap="courseResult">
+        select * from course where course_id = #{id}
+    </select>
+</mapper>

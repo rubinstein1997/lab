@@ -117,9 +117,13 @@
             ,cols: [
                         [ //表头
                 {field: 'id', title: '', width:80, fixed: 'left'}
-                ,{field: 'monday', title: '星期一', width:80}
-                ,{field: 'tuesday', title: '星期二', width:80}
-                ,{field: 'wednesday', title: '星期三', width:80}
+                ,{field: 'monday', title: '星期一', width:80, templet: 'titleTp1'}
+                ,{field: 'tuesday', title: '星期二', width:80,  templet: function (d) {
+                                return d.LAY_INDEX
+                            }}
+                ,{field: 'wednesday', title: '星期三', width:80,  templet: function (d) {
+                                return d.LAY_INDEX
+                            }}
                 ,{field: 'thursday', title: '星期四', width: 80}
                 ,{field: 'friday', title: '星期五', width: 80}
                 ,{field: 'saturday', title: '星期六', width: 80}
@@ -129,6 +133,10 @@
         });
 
     });
+</script>
+
+<script type="text/html" id="titleTp1">
+    {{# if(d}}
 </script>
 </body>
 </html>

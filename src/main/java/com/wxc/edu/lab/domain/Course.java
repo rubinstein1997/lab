@@ -2,6 +2,8 @@ package com.wxc.edu.lab.domain;
 
 public class Course {
 
+    private int id;
+
     private String teacher;
 
     private String courseName;

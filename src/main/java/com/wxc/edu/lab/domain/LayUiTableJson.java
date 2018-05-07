@@ -1,25 +1,14 @@
 package com.wxc.edu.lab.domain;
 
-import java.util.List;
+public class LayUiTableJson {
 
-public class Js {
-    private String code = "0";
+    private String code;
 
     private String msg;
 
     private String count;
 
-    private List<Object> data;
-
-    @Override
-    public String toString() {
-        return "Js{" +
-                "code='" + code + '\'' +
-                ", msg='" + msg + '\'' +
-                ", count='" + count + '\'' +
-                ", data=" + data +
-                '}';
-    }
+    private Object data;
 
     public String getCode() {
         return code;
@@ -45,11 +34,21 @@ public class Js {
         this.count = count;
     }
 
-    public List<Object> getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(List<Object> data) {
+    public void setData(Object data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "LayUiTableJson{" +
+                "code='" + code + '\'' +
+                ", msg='" + msg + '\'' +
+                ", count='" + count + '\'' +
+                ", data=" + data +
+                '}';
     }
 }
