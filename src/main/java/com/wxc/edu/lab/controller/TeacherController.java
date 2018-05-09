@@ -1,7 +1,6 @@
 package com.wxc.edu.lab.controller;
 
 import com.wxc.edu.lab.domain.LayUiTableJson;
-import com.wxc.edu.lab.domain.TeacherSchedule;
 import com.wxc.edu.lab.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,14 +9,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
 @RequestMapping("/teacher")
 public class TeacherController {
 
-    TeacherSchedule teacherSchedule = new TeacherSchedule();
 
     @Autowired
     CourseService courseService;

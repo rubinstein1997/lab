@@ -1,7 +1,5 @@
 package com.wxc.edu.lab.service;
 
-import com.wxc.edu.lab.domain.Course;
-import com.wxc.edu.lab.domain.WeekSchedule;
 import com.wxc.edu.lab.mapper.CourseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +10,6 @@ import java.util.*;
 public class CourseService {
 
     private CourseMapper courseMapper;
-
-    private Course course;
 
     //时间段, 如0102节课
     private String[] segment = {"0102","0304","0506","0708","0910"};

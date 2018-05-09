@@ -6,13 +6,13 @@
 <mapper namespace="com.wxc.edu.lab.mapper.CourseMapper">
 
     <resultMap id="courseResult" type="com.wxc.edu.lab.domain.Course">
-        <id property="id" column="id"/>
-        <result property="teacher_id" column="teacher"/>
-        <result property="course" column="courseName"/>
-        <result property="day" column="day"/>
-        <result property="week" column="week"/>
-        <result property="time" column="segment"/>
-        <result property="laboratory_id" column="laboratory"/>
+        <id column="id" property="id"/>
+        <result column="teacher_id" property="teacher"/>
+        <result column="course" property="courseName"/>
+        <result column="day" property="day"/>
+        <result column="week" property="week"/>
+        <result column="time" property="segment"/>
+        <result column="laboratory_id" property="laboratory"/>
     </resultMap>
 
 

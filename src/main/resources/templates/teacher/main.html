@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 后台大布局 - Layui</title>
     <link rel="stylesheet" href="/css/layui.css">
+
+    <style type="text/css">
+        .layui-table-cell {
+            overflow: visible;
+            bottom: 20px;
+
+        }
+    </style>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -75,21 +83,8 @@
 
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <table id="demo" lay-filter="test"></table>
-        <table class="layui-table" lay-data="{基础参数}">
-            <thead>
-            <tr>
-                <th lay-data="{field:'username', width:80}" rowspan="2">联系人</th>
-                <th lay-data="{field:'amount', width:120}" rowspan="2">金额</th>
-                <th lay-data="{align:'center'}" colspan="3">地址</th>
-            </tr>
-            <tr>
-                <th lay-data="{field:'province', width:80}">省</th>
-                <th lay-data="{field:'city', width:120}">市</th>
-                <th lay-data="{field:'county', width:300}">详细</th>
-            </tr>
-            </thead>
-        </table>
+        <table class="layui-table-cell" id="schedule" lay-filter="test"></table>
+
     </div>
 
     <div class="layui-footer">
@@ -110,33 +105,62 @@
 
         //第一个实例
         table.render({
-            elem: '#demo'
-            ,height: 315
+            elem: '#schedule'
             ,url: '/teacher/schedule' //数据接口
-            ,page: true //开启分页
+            ,size: 'lg'
+            ,text: {
+                none: ' '
+            }
             ,cols: [
                         [ //表头
-                {field: 'id', title: '', width:80, fixed: 'left'}
-                ,{field: 'monday', title: '星期一', width:80, templet: 'titleTp1'}
-                ,{field: 'tuesday', title: '星期二', width:80,  templet: function (d) {
-                                return d.LAY_INDEX
+                {field: 'id', title: '', width:80, style:'height:150px',align:'center',fixed: 'left'}
+                ,{field: 'monday', title: '星期一', width:120,style:'height:150px',templet: function (d) {
+                    return 'ID：'+ d.tuesday.week + '<br>' +  d.tuesday.day
+                }}
+                ,{field: 'tuesday', title: '星期二', width:150,align:'center',style:'height:150px',templet: function (d) {
+                                // return '<div style="margin: 0 auto">ID：'+ d.tuesday.week + '<br>' +  d.tuesday.day+ '<br>' +  d.tuesday.courseName+ '<br>' +  d.tuesday.teacher+ '<br>' +  d.tuesday.segment + '</div>'
+                                //         }}
+                                return '<div style="text-align: center">' + '<div style="margin: 0 auto;line-height: 23px">' + d.tuesday.week + '<br>' + d.tuesday.day + '<br>' + d.tuesday.courseName + '<br>' + d.tuesday.teacher + '</div>' + '</div>'
                             }}
-                ,{field: 'wednesday', title: '星期三', width:80,  templet: function (d) {
-                                return d.LAY_INDEX
+                                    ,{field: 'wednesday', title: '星期三', width:80, style:'height:150px',templet: function (d) {
+                return 'ID：'+ d.tuesday.week + '<br>' +  d.tuesday.day
+
                             }}
-                ,{field: 'thursday', title: '星期四', width: 80}
-                ,{field: 'friday', title: '星期五', width: 80}
-                ,{field: 'saturday', title: '星期六', width: 80}
-                ,{field: 'sunday', title: '星期日', width: 80}
+                ,{field: 'thursday', title: '星期四',style:'height:150px', width: 80,templet: function (d) {
+                return 'ID：'+ d.tuesday.week + '<br>' +  d.tuesday.day
+            }}
+                ,{field: 'friday', title: '星期五',style:'height:150px', width: 80,templet: function (d) {
+                return 'ID：'+ d.tuesday.week + '<br>' +  d.tuesday.day
+            }}
+                ,{field: 'saturday', title: '星期六', style:'height:150px',width: 80,templet: function (d) {
+                return '<div style="margin: 0 auto">ID：'+ d.tuesday.week + '<br>' +  d.tuesday.day +'</div>'
+            }}
+                ,{field: 'sunday', title: '星期日', style:'height:150px',width: 80,templet: function (d) {
+                return 'ID：'+ d.tuesday.week + '<br>' +  d.tuesday.day
+            }}
+
+]
                 ]
-            ]
         });
 
     });
 </script>
 
-<script type="text/html" id="titleTp1">
-    {{# if(d}}
-</script>
+<!--<script type="text/html" id="monday">-->
+    <!--&lt;!&ndash;{{#  if(d.id < 150){ }}&ndash;&gt;-->
+    <!--&lt;!&ndash;<a href="/detail/{{d.id}}" class="layui-table-link">{{d.title}}</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;{{#  } else { }}&ndash;&gt;-->
+    <!--&lt;!&ndash;{{d.title}}(普通用户)&ndash;&gt;-->
+    <!--&lt;!&ndash;{{#  } }}&ndash;&gt;-->
+
+    <!--<ul>-->
+        <!--<li> {{ d.monday.week}}</li>-->
+        <!--<li> {{ d.monday.day}}</li>-->
+    <!--</ul>-->
+
+    <!--<div class="layui-bg-gray">{{ d.monday.week }}</div>-->
+    <!--<div>{{ d.monday.day}}</div>-->
+<!--</script>-->
+
 </body>
 </html>
